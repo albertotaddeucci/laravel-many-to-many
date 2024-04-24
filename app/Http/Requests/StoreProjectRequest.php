@@ -25,10 +25,10 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|max:100',
             'description' => 'nullable|max:500',
             'img' => 'file|nullable|max:1024|mimes:jpg,png',
-            // 'tech' => 'required|max:100',
             'github_url' => 'nullable|max:300',
             'devices' => 'nullable|max:100',
-            'type_id' => 'nullable|exists:types,id'
+            'type_id' => 'nullable|exists:types,id',
+            'technologies' => 'nullable|exists:technologies,id'
         ];
     }
 
@@ -42,9 +42,6 @@ class StoreProjectRequest extends FormRequest
 
             'img.max' => 'Deve essere di 1024KB o inferiore',
             'img.mimes' => 'Deve un file di tipo .png o .jpg',
-
-            // 'tech.required' => 'Devi inserire le tecnologie utilizzate',
-            // 'tech.max' => 'Deve avere un massimo di :max caratteri',
 
             'github_url.max' => 'Deve avere un massimo di :max caratteri',
 
