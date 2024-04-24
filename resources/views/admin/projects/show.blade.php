@@ -8,7 +8,11 @@
 
         <div class="col text-center bg-dark bg-gradient bg-opacity-25 py-5 rounded-2 ">
             <h2 class="text-white">{{$project->title}}</h2>
-
+            <div class="d-flex gap-2 mb-5">
+                @foreach ($project->technologies as $technology)
+                <span class="badge rounded-pill" style="background-color: {{$technology->color ?? 'rgba(100,300,300,.4)'}}">{{$technology->title}}</span>
+                @endforeach
+              </div>
         </div>
     </div>
     <hr>
@@ -17,8 +21,6 @@
         <div class="col-6">
             <strong>Tipologia:</strong>
             <p class="pt-1 ps-4">{{$project->type?->title}}</p>
-            {{-- <strong >Tecnologie utilizzate:</strong>
-            <p class="pt-1 ps-4">{{$project->tech}}</p> --}}
             <strong >Visualizzazione ottimale per:</strong>
             <p class="pt-1 ps-4">{{$project->devices}}</p>
             <strong >Descrizione del progetto:</strong>
